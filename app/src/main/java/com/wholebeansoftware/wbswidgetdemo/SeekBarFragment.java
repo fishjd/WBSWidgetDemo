@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.wholebeansoftware.wbswidgetdemo.widget.BigVerticalBar;
+import com.wholebeansoftware.wbswidgetdemo.widget.WBSSeekBar;
 
 /**
  * Created by James Haring on 2018-01-19.
@@ -39,6 +41,19 @@ public class SeekBarFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_seekbar, container, false);
+
+		// grab all the seekbars from the xml.
+		WBSSeekBar seekBarMaster = (WBSSeekBar) rootView.findViewById(R.id.seekBarMaster);
+		WBSSeekBar seekBarSlave1  = (WBSSeekBar) rootView.findViewById(R.id.seekBarSlave1);
+		WBSSeekBar seekBarSlave2  = (WBSSeekBar) rootView.findViewById(R.id.seekBarSlave2);
+
+		// create the object and add slaves.
+		BigVerticalBar seekBarkGroup = new BigVerticalBar(seekBarMaster);
+		seekBarkGroup.addSlave(seekBarSlave1);
+		seekBarkGroup.addSlave(seekBarSlave2);
+
+		// call
+		seekBarkGroup.onCreate();
 
 		return rootView;
 	}

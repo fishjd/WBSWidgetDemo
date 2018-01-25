@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name = "colorPrimary">#3F51B5</color>
+	<color name = "colorPrimary">#7A44E8</color>
 	<color name = "colorPrimaryDark">#303F9F</color>
-	<color name = "colorAccent">#FF4081</color>
+	<color name = "colorAccent">#FF4BCF</color>
+	<color name = "white">#FFFFFF</color>
+	<color name = "title_white">#DCDCDC</color>
+	<color name = "black">#000000</color>
+	<color name = "green">#00FF00</color>
+	<!-- The coolest color wheel ever:  https://color.adobe.com/create/color-wheel/-->
+	<!-- This color scheme: https://color.adobe.com/create/color-wheel/?base=2&rule=Analogous&selected=4&name=WBSWidgetDemo&mode=rgb&rgbvalues=1,0.29227219116036784,0.8116494836590704,0.8278451728264447,0.2659676939559347,0.91,0.7367178190492859,0.3422721911603679,1,0.4765548240750164,0.2659676939559347,0.91,0.33066994472474953,0.29227219116036784,1&swatchOrder=0,1,2,3,4-->
+	<color name = "purpleLight1">#FF4BCF</color>
+	<color name = "purpleLight2">#D344E8</color>
+	<color name = "purpleDark1">#BC57FF</color>
+	<color name = "purpleDark2">#7A44E8</color>
+	<color name = "purpleAccent1">#544BFF</color>
+
 </resources>
