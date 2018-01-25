@@ -1,0 +1,39 @@
+<LinearLayout
+	android:orientation = "vertical"
+	tools:layout_editor_absoluteX = "8dp"
+	tools:layout_editor_absoluteY = "27dp"
+	xmlns:android = "http://schemas.android.com/apk/res/android"
+	xmlns:tools = "http://schemas.android.com/tools"
+	android:layout_width = "match_parent"
+	android:layout_height = "match_parent"
+	tools:context = "com.wholebeansoftware.wbswidgetdemo.MainActivity$PlaceholderFragment"
+	xmlns:com.wholebeansoftware.widget.WBSNotchView = "http://schemas.android.com/apk/res-auto"
+	>
+
+	<TextView
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:text = "Notch View"
+		/>
+
+<!--
+	<com.wholebeansoftware.widget.WBSNotchView
+		android:id = "@+id/notchViewAperture"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:layout_gravity = "fill_horizontal|fill_vertical"
+		android:layout_marginTop = "5dp"
+
+
+		com.wholebeansoftware.widget.WBSNotchView:minor_per_major_count = "1"
+		com.wholebeansoftware.widget.WBSNotchView:thumb_image = "@drawable/arrow_label"
+		com.wholebeansoftware.widget.WBSNotchView:notch_bar_width_screen_multiple = "1"
+
+		com.wholebeansoftware.widget.WBSNotchView:notch_text_size = "10"
+		/>
+-->
+
+
+
+</LinearLayout>
+
