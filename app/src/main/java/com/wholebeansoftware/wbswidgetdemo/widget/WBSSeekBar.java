@@ -69,11 +69,11 @@ public class WBSSeekBar extends View {
 	private float cornerRadius = 0F;
 	private int barColor;
 	private int barHighlightColor;
-	private int leftThumbColor;
-	private Boolean drawLeftThumbText;
-	private Float leftThumbTextSize = 12F;
-	private Integer leftThumbTextColor = Color.BLACK;
-	private String leftThumbTextFont = "sans-serif-condensed";
+	private int thumbColor;
+	private Boolean drawThumbText;
+	private Float thumbTextSize = 12F;
+	private Integer thumbTextColor = Color.BLACK;
+	private String thumbTextFont = "sans-serif-condensed";
 	private Float barPadding;
 	private Integer barHeight;
 	private float thumbWidth;
@@ -89,8 +89,8 @@ public class WBSSeekBar extends View {
 	private Float thumbMax;
 
 	private float thumbDiameter;
-	private Integer leftThumbDrawableId;
-	private Integer leftThumbHighlightDrawableId;
+	private Integer thumbDrawableId;
+	private Integer thumbHighlightDrawableId;
 	private Boolean drawBar = true;
 	private Integer verticalBarWidth;
 	private VerticalBarDrawType drawVerticalBar = new VerticalBarDrawType(VerticalBarDrawType
@@ -98,14 +98,14 @@ public class WBSSeekBar extends View {
 	private Float suggestedRangeMin = 0F;
 	private Float suggestedRangeMax = 0F;
 
-	private Drawable leftDrawable;
-	private Bitmap leftThumb;
-	private Bitmap leftThumbPressed;
+	private Drawable thumbDrawable;
+	private Bitmap thumb;
+	private Bitmap thumbPressed;
 	private Thumb pressedThumb;
 
 	private Paint _paint;
 
-	private RectF rectLeftThumb;
+	private RectF rectThumb;
 
 	private boolean mIsDragging;
 	private final DecimalFormat oneDec = new DecimalFormat("0.0");
@@ -145,17 +145,17 @@ public class WBSSeekBar extends View {
 			barHighlightColor = array.getColor(R.styleable.WBSSeekBar_bar_highlight_color,
 				Color.RED);
 			barHeight = array.getInteger(R.styleable.WBSSeekBar_bar_height, 6);
-			leftThumbColor = array.getColor(R.styleable.WBSSeekBar_left_thumb_color,
-				Color.BLACK);
-			setLeftThumbDrawable(array.getResourceId(R.styleable.WBSSeekBar_left_thumb_image,
+			thumbColor = array.getColor(R.styleable.WBSSeekBar_thumb_color,
+										Color.BLACK);
+			setThumbDrawable(array.getResourceId(R.styleable.WBSSeekBar_thumb_image,
 				R.drawable.arrow_label));
-			drawLeftThumbText = array.getBoolean(R.styleable.WBSSeekBar_draw_left_thumb_text,
+			drawThumbText = array.getBoolean(R.styleable.WBSSeekBar_draw_thumb_text,
 				true);
-			leftThumbTextSize = array.getFloat(R.styleable.WBSSeekBar_left_thumb_text_size,
+			thumbTextSize = array.getFloat(R.styleable.WBSSeekBar_thumb_text_size,
 				12F);
-			leftThumbTextColor = array.getColor(R.styleable.WBSSeekBar_left_thumb_text_color,
+			thumbTextColor = array.getColor(R.styleable.WBSSeekBar_thumb_text_color,
 				Color.BLACK);
-			leftThumbTextFont = array.getString(R.styleable.WBSSeekBar_left_thumb_text_font);
+			thumbTextFont = array.getString(R.styleable.WBSSeekBar_thumb_text_font);
 
 			verticalBarWidth = array.getInteger(R.styleable.WBSSeekBar_vertical_bar_width, 6);
 			drawVerticalBar = new VerticalBarDrawType(
@@ -173,15 +173,15 @@ public class WBSSeekBar extends View {
 	}
 
 	protected void init() {
-		leftThumb = getBitmap(leftDrawable);
-		leftThumbPressed = (leftThumbPressed == null) ? leftThumb : leftThumbPressed;
+		thumb = getBitmap(thumbDrawable);
+		thumbPressed = (thumbPressed == null) ? thumb : thumbPressed;
 
 		barPadding = calcBarPadding();
 
 		calcThumbSize();
 
 		_paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		rectLeftThumb = new RectF();
+		rectThumb = new RectF();
 
 		pressedThumb = null;
 
@@ -222,13 +222,13 @@ public class WBSSeekBar extends View {
 		return this;
 	}
 
-	public WBSSeekBar setLeftThumbColor(int leftThumbColor) {
-		this.leftThumbColor = leftThumbColor;
+	public WBSSeekBar setThumbColor(int thumbColor) {
+		this.thumbColor = thumbColor;
 		return this;
 	}
 
-	public WBSSeekBar setLeftThumbHighlightDrawable(int resId) {
-		leftThumbHighlightDrawableId = resId;
+	public WBSSeekBar setThumbHighlightDrawable(int resId) {
+		thumbHighlightDrawableId = resId;
 		return this;
 	}
 
@@ -245,8 +245,8 @@ public class WBSSeekBar extends View {
 		return pressedThumb;
 	}
 
-	public RectF getLeftThumbRect() {
-		return rectLeftThumb;
+	public RectF getThumbRect() {
+		return rectThumb;
 	}
 
 	public float getCornerRadius() {
@@ -265,12 +265,12 @@ public class WBSSeekBar extends View {
 		return barHighlightColor;
 	}
 
-	public Integer getLeftThumbColor() {
-		return leftThumbColor;
+	public Integer getThumbColor() {
+		return thumbColor;
 	}
 
-	public Drawable getLeftDrawable() {
-		return leftDrawable;
+	public Drawable getThumbDrawable() {
+		return thumbDrawable;
 	}
 
 	public float getThumbWidth() {
@@ -287,8 +287,8 @@ public class WBSSeekBar extends View {
 		return thumbHeight;
 	}
 
-	public WBSSeekBar setLeftThumbDrawable(int resId) {
-		leftThumbDrawableId = resId;
+	public WBSSeekBar setThumbDrawable(int resId) {
+		thumbDrawableId = resId;
 		calcThumbSize();
 		invalidate();
 		return this;
@@ -298,8 +298,8 @@ public class WBSSeekBar extends View {
 	 * Set thumbWidth and thumbHeight
 	 */
 	protected void calcThumbSize() {
-		if (leftThumbDrawableId != null) {
-			Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), leftThumbDrawableId);
+		if (thumbDrawableId != null) {
+			Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), thumbDrawableId);
 			thumbHeight = myBitmap.getHeight();
 			thumbWidth = myBitmap.getWidth();
 		} else {
@@ -311,8 +311,8 @@ public class WBSSeekBar extends View {
 	}
 
 	protected void calcThumbSize(Float thumbWidthInput) {
-		if (leftThumbDrawableId != null) {
-			Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), leftThumbDrawableId);
+		if (thumbDrawableId != null) {
+			Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), thumbDrawableId);
 			thumbHeight = myBitmap.getHeight();
 		} else {
 			thumbHeight = getResources().getDimension(R.dimen.thumb_height);
@@ -363,14 +363,14 @@ public class WBSSeekBar extends View {
 		// only used in debugging.
 		// drawInRangeBar(canvas);
 
-		// draw left thumb
+		// draw thumb
 		drawThumb(canvas, _paint, getMinValue());
 
 		if (drawVerticalBar.getValue().equals(VerticalBarDrawType.none) == false) {
 			drawThumbVerticalBar(canvas, _paint, getMinValue());
 		}
-		// draw left thumb text
-		if (drawLeftThumbText) {
+		// draw thumb text
+		if (drawThumbText) {
 			drawThumbText(canvas, _paint, getMinValue());
 		}
 	}
@@ -455,21 +455,21 @@ public class WBSSeekBar extends View {
 
 	protected void drawThumb(final Canvas canvas, final Paint paint, Float value) {
 
-		paint.setColor(leftThumbColor);
+		paint.setColor(thumbColor);
 		calcThumbSize();
 
-		rectLeftThumb = calcThumbRect(convertUserToRaw(value)
-			//, getThumbWidth(), getThumbHeight()
+		rectThumb = calcThumbRect(convertUserToRaw(value)
+								  //, getThumbWidth(), getThumbHeight()
 		);
 
-		Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), leftThumbDrawableId);
-		if (leftThumb != null && leftThumbPressed != null) {
-			// Bitmap lThumb = calcLeftThumb(leftThumb, leftThumbPressed);
-			drawLeftThumbWithImage(canvas, paint, rectLeftThumb, myBitmap);
-		} else if (myBitmap != null && leftThumbPressed == null) {
-			drawLeftThumbWithImage(canvas, paint, rectLeftThumb, myBitmap);
+		Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), thumbDrawableId);
+		if (thumb != null && thumbPressed != null) {
+			// Bitmap thumb = calcThumb(thumb, thumbPressed);
+			draThumbWithImage(canvas, paint, rectThumb, myBitmap);
+		} else if (myBitmap != null && thumbPressed == null) {
+			draThumbWithImage(canvas, paint, rectThumb, myBitmap);
 		} else {
-			drawLeftThumbWithColor(canvas, paint, rectLeftThumb);
+			drawThumbWithColor(canvas, paint, rectThumb);
 		}
 
 
@@ -506,13 +506,13 @@ public class WBSSeekBar extends View {
 		String thumbText = getValueText(value);
 
 		paint.setTextAlign(Paint.Align.CENTER);
-		paint.setColor(leftThumbTextColor);
+		paint.setColor(thumbTextColor);
 
-		float fTextSize = convertSPtoDp(leftThumbTextSize);
+		float fTextSize = convertSPtoDp(thumbTextSize);
 		paint.setTextSize(fTextSize);
 
 
-		Typeface typeface = Typeface.create(leftThumbTextFont, Typeface.BOLD);
+		Typeface typeface = Typeface.create(thumbTextFont, Typeface.BOLD);
 		paint.setTypeface(typeface);
 
 		float fYPosition = fTextSize + 4;
@@ -531,7 +531,7 @@ public class WBSSeekBar extends View {
 	protected void drawThumbVerticalBar(final Canvas canvas, final Paint paint, Float value) {
 
 		paint.setTextAlign(Paint.Align.CENTER);
-		paint.setColor(getLeftThumbColor());
+		paint.setColor(getThumbColor());
 
 		RectF rectVerticalBar = new RectF();
 		Float rawValue = convertUserToRaw(value);
@@ -594,12 +594,12 @@ public class WBSSeekBar extends View {
 
 	}
 
-	protected void drawLeftThumbWithColor(final Canvas canvas, final Paint paint,
+	protected void drawThumbWithColor(final Canvas canvas, final Paint paint,
 		final RectF rect) {
 		canvas.drawOval(rect, paint);
 	}
 
-	protected void drawLeftThumbWithImage(final Canvas canvas, final Paint paint, final RectF rect,
+	protected void draThumbWithImage(final Canvas canvas, final Paint paint, final RectF rect,
 		final Bitmap image) {
 		canvas.drawBitmap(image, rect.left, rect.top, paint);
 	}
@@ -928,17 +928,17 @@ public class WBSSeekBar extends View {
 	 *
 	 * @return Draw thumb Text.
 	 */
-	public Boolean getDrawLeftThumbText() {
-		return drawLeftThumbText;
+	public Boolean getDrawThumbText() {
+		return drawThumbText;
 	}
 
 	/**
 	 * Draw the thumb text,   True thumb text is drawn.  False thumb text is not drawn.
 	 *
-	 * @param drawLeftThumbText Draw thumb Text.
+	 * @param drawThumbText Draw thumb Text.
 	 */
-	public void setDrawLeftThumbText(Boolean drawLeftThumbText) {
-		this.drawLeftThumbText = drawLeftThumbText;
+	public void setDrawThumbText(Boolean drawThumbText) {
+		this.drawThumbText = drawThumbText;
 	}
 
 	/**
