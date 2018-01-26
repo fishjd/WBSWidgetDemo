@@ -825,18 +825,15 @@ public class WBSSeekBar extends View {
 
 	protected void trackTouchEvent(Float xValueRaw) {
 		Float xUser = convertRawToUser(xValueRaw);
-		//Log.d(logTag, "TTE Start xValueRaw = " + xValueRaw + " userX = " + xUser);
 
 		Boolean inRange = true;
 		if (xUser < minRange) {
 			inRange = false;
-			//Log.d(logTag, " TTE Too Small xValueRaw = " + xValueRaw + " min = " + minRange);
 			rawX = convertUserToRaw(minRange);
 			setMinValue(minRange);
 		}
 		if (maxRange < xUser) {
 			inRange = false;
-			//Log.d(logTag, " TTE Too Large xValueRaw = " + xValueRaw + " mas = " + maxRange);
 			rawX = convertUserToRaw(maxRange);
 			setMinValue(maxRange);
 		}
@@ -844,7 +841,6 @@ public class WBSSeekBar extends View {
 			// value in range
 			rawX = xValueRaw;
 			setMinValue(xUser);
-			///Log.d(logTag, " TTE rawX = " + rawX + " min = " + getMinValue());
 		}
 		if (valueChangeListener != null) {
 			valueChangeListener.valueChanged(getMinValue(), getValueText(getMinValue()));

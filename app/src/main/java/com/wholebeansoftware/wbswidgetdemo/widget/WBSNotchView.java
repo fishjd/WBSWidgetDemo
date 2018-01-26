@@ -53,7 +53,7 @@ public class WBSNotchView extends View {
 	private Integer notchBarWidthScreenMultiple;
 
 	/**
-	 * The current value of the seekBar.   This is most likely what your are looking for.
+	 * The current value of the notch view.   This is most likely what your are looking for.
 	 **/
 	private float valueCurrent;
 

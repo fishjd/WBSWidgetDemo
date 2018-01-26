@@ -13,27 +13,59 @@
 	<TextView
 		android:layout_width = "match_parent"
 		android:layout_height = "wrap_content"
-		android:text = "Notch View"
+		android:text = "Notch View Demo"
 		/>
 
-<!--
-	<com.wholebeansoftware.widget.WBSNotchView
-		android:id = "@+id/notchViewAperture"
+	<TextView
+		android:id = "@+id/notchViewValue1"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:text = "0.0"
+		/>
+
+	<com.wholebeansoftware.wbswidgetdemo.widget.WBSNotchView
+		android:id = "@+id/notchView1"
 		android:layout_width = "match_parent"
 		android:layout_height = "wrap_content"
 		android:layout_gravity = "fill_horizontal|fill_vertical"
 		android:layout_marginTop = "5dp"
-
-
-		com.wholebeansoftware.widget.WBSNotchView:minor_per_major_count = "1"
+		android:background = "@color/white"
+		com.wholebeansoftware.widget.WBSNotchView:min_range = "0"
+		com.wholebeansoftware.widget.WBSNotchView:max_range = "15"
+		com.wholebeansoftware.widget.WBSNotchView:major_notch_color = "@color/purpleDark1"
+		com.wholebeansoftware.widget.WBSNotchView:minor_per_major_count = "2"
+		com.wholebeansoftware.widget.WBSNotchView:minor_notch_color = "@color/purpleAccent1"
+		com.wholebeansoftware.widget.WBSNotchView:thumb_color = "@color/purpleLight2"
+		com.wholebeansoftware.widget.WBSNotchView:thumb_color_dimmed = "@color/purpleDark1"
 		com.wholebeansoftware.widget.WBSNotchView:thumb_image = "@drawable/arrow_label"
-		com.wholebeansoftware.widget.WBSNotchView:notch_bar_width_screen_multiple = "1"
-
+		com.wholebeansoftware.widget.WBSNotchView:thumb_text_color = "@color/black"
+		com.wholebeansoftware.widget.WBSNotchView:notch_text_color = "@color/black"
 		com.wholebeansoftware.widget.WBSNotchView:notch_text_size = "10"
 		/>
--->
 
+	<TextView
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:text = "Notch View Demo 5 - 30"
+		/>
 
-
+	<com.wholebeansoftware.wbswidgetdemo.widget.WBSNotchView
+		android:id = "@+id/notchView2"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:layout_gravity = "fill_horizontal|fill_vertical"
+		android:layout_marginTop = "5dp"
+		android:background = "@color/black"
+		com.wholebeansoftware.widget.WBSNotchView:min_range = "5"
+		com.wholebeansoftware.widget.WBSNotchView:max_range = "31"
+		com.wholebeansoftware.widget.WBSNotchView:major_notch_color = "@color/blueDark1"
+		com.wholebeansoftware.widget.WBSNotchView:minor_per_major_count = "1"
+		com.wholebeansoftware.widget.WBSNotchView:minor_notch_color = "@color/blueAccent1"
+		com.wholebeansoftware.widget.WBSNotchView:thumb_color = "@color/blueLight2"
+		com.wholebeansoftware.widget.WBSNotchView:thumb_color_dimmed = "@color/blueDark1"
+		com.wholebeansoftware.widget.WBSNotchView:thumb_image = "@drawable/arrow_label"
+		com.wholebeansoftware.widget.WBSNotchView:thumb_text_color = "@color/white"
+		com.wholebeansoftware.widget.WBSNotchView:notch_text_color = "@color/blueAccent1"
+		com.wholebeansoftware.widget.WBSNotchView:notch_text_size = "18"
+		/>
 </LinearLayout>
-

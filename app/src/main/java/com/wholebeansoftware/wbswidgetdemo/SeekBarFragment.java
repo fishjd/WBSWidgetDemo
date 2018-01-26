@@ -5,8 +5,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.wholebeansoftware.wbswidgetdemo.widget.BigVerticalBar;
+import com.wholebeansoftware.wbswidgetdemo.widget.ValueChangeListener;
 import com.wholebeansoftware.wbswidgetdemo.widget.WBSSeekBar;
 
 /**
@@ -37,25 +39,43 @@ public class SeekBarFragment extends Fragment {
 		return fragment;
 	}
 
+	TextView seekBarValue1;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_seekbar, container, false);
+		seekBarValue1 = (TextView) rootView.findViewById(R.id.seekBarValue1);
 
 		// grab all the seekbars from the xml.
 		WBSSeekBar seekBarMaster = (WBSSeekBar) rootView.findViewById(R.id.seekBarMaster);
-		WBSSeekBar seekBarSlave1  = (WBSSeekBar) rootView.findViewById(R.id.seekBarSlave1);
-		WBSSeekBar seekBarSlave2  = (WBSSeekBar) rootView.findViewById(R.id.seekBarSlave2);
+		WBSSeekBar seekBarSlave1 = (WBSSeekBar) rootView.findViewById(R.id.seekBarSlave1);
+		WBSSeekBar seekBarSlave2 = (WBSSeekBar) rootView.findViewById(R.id.seekBarSlave2);
+
+		seekBarMaster.setValueChangeListener(new ListenerFromSeekBar());
 
 		// create the object and add slaves.
 		BigVerticalBar seekBarkGroup = new BigVerticalBar(seekBarMaster);
 		seekBarkGroup.addSlave(seekBarSlave1);
 		seekBarkGroup.addSlave(seekBarSlave2);
-
-		// call
 		seekBarkGroup.onCreate();
 
 		return rootView;
+	}
+
+	/**
+	 * Listen to changes in the Notch View
+	 **/
+	private class ListenerFromSeekBar implements ValueChangeListener {
+
+		public ListenerFromSeekBar() {
+			super();
+		}
+
+		@Override
+		public void valueChanged(Number value, String valueText) {
+			seekBarValue1.setText(valueText);
+		}
 	}
 }
 

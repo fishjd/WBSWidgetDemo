@@ -5,6 +5,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.wholebeansoftware.wbswidgetdemo.widget.ValueChangeListener;
+import com.wholebeansoftware.wbswidgetdemo.widget.WBSNotchView;
 
 /**
  * Created by James Haring on 2018-01-19.
@@ -34,12 +38,34 @@ public class NotchViewFragment extends Fragment {
 		return fragment;
 	}
 
+	WBSNotchView notchView;
+	TextView notchViewValue1;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_notchview, container, false);
 
+		notchView = (WBSNotchView) rootView.findViewById(R.id.notchView1);
+		notchView.setValueChangeListener(new listenerFromNotchView());
+
+		notchViewValue1 = (TextView) rootView.findViewById(R.id.notchViewValue1);
+
 		return rootView;
+	}
+
+	/**
+	 * Listen to changes in the Notch View
+	 **/
+	private class listenerFromNotchView implements ValueChangeListener {
+
+		public listenerFromNotchView() {
+			super();
+		}
+
+		@Override
+		public void valueChanged(Number value, String valueText) {
+			notchViewValue1.setText(valueText);
+		}
 	}
 }
 
