@@ -19,6 +19,8 @@ import android.view.View;
 import com.wholebeansoftware.wbsseekbar.Util.AssertAndroid;
 
 import java.text.DecimalFormat;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * A custom seekbar with a suggested range.
@@ -42,7 +44,8 @@ public class WBSSeekBar extends View {
 	private final float NO_STEP = -1f;
 
 
-	private ValueChangeListener valueChangeListener;
+	private Set<ValueChangeListener> valueChangeListener = new LinkedHashSet<>();
+
 	private TextChangeListener textChangeListener;
 
 	/**
@@ -222,8 +225,8 @@ public class WBSSeekBar extends View {
 		return this;
 	}
 
-	public void setValueChangeListener(ValueChangeListener valueChangeListener) {
-		this.valueChangeListener = valueChangeListener;
+	public void addValueChangeListener(ValueChangeListener valueChangeListener) {
+		this.valueChangeListener.add(valueChangeListener);
 	}
 
 	public void setTextChangeListener(TextChangeListener onSeekbarTextChangeListener) {
@@ -737,10 +740,7 @@ public class WBSSeekBar extends View {
 				} else {
 					mIsDragging = true;
 					trackTouchEvent(event);
-					if (valueChangeListener != null) {
-						valueChangeListener.valueChanged(getMinValue(),
-														 getValueText(getMinValue()));
-					}
+					valueChangedNotifyAll();
 					mIsDragging = false;
 					setPressed(false);
 				}
@@ -752,9 +752,7 @@ public class WBSSeekBar extends View {
 					isInThumbRange(mDownMotionX, getMinValue());
 					invalidate();
 				}
-				if (valueChangeListener != null) {
-					valueChangeListener.valueChanged(getMinValue(), getValueText(getMinValue()));
-				}
+				valueChangedNotifyAll();
 				break;
 			case MotionEvent.ACTION_CANCEL:
 				pressedThumb = null;
@@ -768,6 +766,14 @@ public class WBSSeekBar extends View {
 
 		return true;
 
+	}
+
+	private void valueChangedNotifyAll() {
+		final Float minValue = getMinValue();
+		final String valueText = getValueText(getMinValue());
+		for (ValueChangeListener changeListener : valueChangeListener) {
+			changeListener.valueChanged(minValue, valueText);
+		}
 	}
 
 	private Thumb evalPressedThumb(float touchX) {
@@ -831,9 +837,7 @@ public class WBSSeekBar extends View {
 			rawX = xValueRaw;
 			setMinValue(xUser);
 		}
-		if (valueChangeListener != null) {
-			valueChangeListener.valueChanged(getMinValue(), getValueText(getMinValue()));
-		}
+		valueChangedNotifyAll();
 	}
 
 	public Float getMinRange() {

@@ -52,7 +52,7 @@ public class SeekBarFragment extends Fragment {
 		WBSSeekBar seekBarSlave1 = (WBSSeekBar) rootView.findViewById(R.id.seekBarSlave1);
 		WBSSeekBar seekBarSlave2 = (WBSSeekBar) rootView.findViewById(R.id.seekBarSlave2);
 
-		seekBarMaster.setValueChangeListener(new ListenerFromSeekBar());
+		seekBarMaster.addValueChangeListener(new ListenerFromSeekBar());
 
 		// create the object and add slaves.
 		BigVerticalBar seekBarkGroup = new BigVerticalBar(seekBarMaster);

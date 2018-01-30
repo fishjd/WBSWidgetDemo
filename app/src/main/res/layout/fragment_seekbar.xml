@@ -6,7 +6,6 @@
 	xmlns:tools = "http://schemas.android.com/tools"
 	android:layout_width = "match_parent"
 	android:layout_height = "match_parent"
-	tools:context = "com.wholebeansoftware.wbswidgetdemo.MainActivity$PlaceholderFragment"
 	xmlns:com.wholebeansoftware.widget.WBSSeekBar = "http://schemas.android.com/apk/res-auto"
 	>
 
@@ -16,6 +15,25 @@
 		android:text = "Seek Bar Demo"
 		/>
 
+	<LinearLayout
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:orientation = "horizontal"
+		>
+
+		<TextView
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "Current Value = "
+			/>
+
+		<TextView
+			android:id = "@+id/seekBarValue1"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "0.0"
+			/>
+	</LinearLayout>
 
 	<GridLayout
 		android:layout_width = "match_parent"
@@ -23,31 +41,18 @@
 		android:layout_marginRight = "0dp"
 		android:layout_marginTop = "0dp"
 		android:columnCount = "1"
-		android:rowCount = "5"
+		android:rowCount = "3"
 		android:paddingBottom = "15dp"
 		android:paddingLeft = "15dp"
 		android:paddingRight = "15dp"
 		android:paddingTop = "15dp"
 		>
 
-		<TextView
-			android:layout_column = "0"
-			android:layout_row = "0"
-			android:layout_gravity = "fill_horizontal|fill_vertical"
-			android:text = "Title of Widget"
-			/>
-		<TextView
-			android:id = "@+id/seekBarValue1"
-			android:layout_column = "0"
-			android:layout_row = "1"
-			android:layout_gravity = "fill_horizontal|fill_vertical"
-			android:text = "0.0"
-			/>
 
 		<com.wholebeansoftware.wbsseekbar.WBSSeekBar
 			android:id = "@+id/seekBarMaster"
 			android:layout_column = "0"
-			android:layout_row = "2"
+			android:layout_row = "0"
 			android:layout_gravity = "fill_horizontal|fill_vertical"
 			com.wholebeansoftware.widget.WBSSeekBar:draw_bar = "false"
 			com.wholebeansoftware.widget.WBSSeekBar:draw_vertical_bar = "bottom"
@@ -62,7 +67,7 @@
 			android:id = "@+id/seekBarSlave1"
 			android:layout_column = "0"
 			android:layout_gravity = "fill_horizontal|fill_vertical"
-			android:layout_row = "3"
+			android:layout_row = "1"
 			com.wholebeansoftware.widget.WBSSeekBar:bar_highlight_color = "@color/purpleAccent1"
 			com.wholebeansoftware.widget.WBSSeekBar:draw_thumb_text = "false"
 			com.wholebeansoftware.widget.WBSSeekBar:draw_vertical_bar = "both"
@@ -78,7 +83,7 @@
 			android:id = "@+id/seekBarSlave2"
 			android:layout_column = "0"
 			android:layout_gravity = "fill_horizontal|fill_vertical"
-			android:layout_row = "4"
+			android:layout_row = "2"
 			com.wholebeansoftware.widget.WBSSeekBar:bar_highlight_color = "@color/purpleAccent1"
 			com.wholebeansoftware.widget.WBSSeekBar:draw_thumb_text = "false"
 			com.wholebeansoftware.widget.WBSSeekBar:draw_vertical_bar = "top"

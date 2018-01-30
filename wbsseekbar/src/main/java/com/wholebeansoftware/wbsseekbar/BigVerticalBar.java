@@ -17,7 +17,7 @@ public class BigVerticalBar implements ValueChangeListener {
 	private WBSSeekBar master;
 
 	/**
-	 * Any slave seekbars.  the master may not be encluded.
+	 * Any slave seekbars.  the master may not be included.
 	 */
 	private Set<WBSSeekBar> slaveAll;
 
@@ -51,7 +51,7 @@ public class BigVerticalBar implements ValueChangeListener {
 		setTouchListenerOnSlaves();
 
 		// when the user changes the value
-		master.setValueChangeListener(this);
+		master.addValueChangeListener(this);
 
 		setInitialValue();
 
