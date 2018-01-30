@@ -7,7 +7,7 @@ WBS Widget Demo demonstrates two Android widgets.
 
 ## WBSSeekBar
 
-![WBS_SeekBar](C:\Users\James\Documents\Programming 2018\Android Studio Projects\WBSWidgetDemo\images\WBS_SeekBar.gif)
+![WBS_SeekBar](.\images\WBS_SeekBar.gif)
 
 WBSSeekBar is similar to the [Android SeekBar](https://developer.android.com/reference/android/widget/SeekBar.html), with the addition of a suggest range that may be highlighted.    Several WBSSeekbars may be joined by a vertical bar and move in unison,  this is implemented with a supplied BigVerticalBar class which handles all the details.    
 
