@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/wbsnotchview" />
+            <option value="$PROJECT_DIR$/wbsseekbar" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

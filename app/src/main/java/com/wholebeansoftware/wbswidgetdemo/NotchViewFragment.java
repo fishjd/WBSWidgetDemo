@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.wholebeansoftware.wbswidgetdemo.widget.ValueChangeListener;
-import com.wholebeansoftware.wbswidgetdemo.widget.WBSNotchView;
+import com.wholebeansoftware.wbsnotchview.ValueChangeListener;
+import com.wholebeansoftware.wbsnotchview.WBSNotchView;
 
 /**
  * Created by James Haring on 2018-01-19.
@@ -40,6 +40,7 @@ public class NotchViewFragment extends Fragment {
 
 	WBSNotchView notchView;
 	TextView notchViewValue1;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 		Bundle savedInstanceState) {

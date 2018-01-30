@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.wholebeansoftware.wbswidgetdemo.widget.BigVerticalBar;
-import com.wholebeansoftware.wbswidgetdemo.widget.ValueChangeListener;
-import com.wholebeansoftware.wbswidgetdemo.widget.WBSSeekBar;
+import com.wholebeansoftware.wbsseekbar.ValueChangeListener;
+import com.wholebeansoftware.wbsseekbar.WBSSeekBar;
+import com.wholebeansoftware.wbsseekbar.BigVerticalBar;
 
 /**
  * Created by James Haring on 2018-01-19.

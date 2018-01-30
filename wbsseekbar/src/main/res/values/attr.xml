@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+	<declare-styleable name = "WBSView">
+		<!--The value for the left side of x axis-->
+		<attr name = "min_range" format = "float" />
+		<!--The value for the right side of x axis-->
+		<attr name = "max_range" format = "float" />
+		<attr name = "thumb_color" format = "color" />
+		<attr name = "thumb_image" format = "reference" />
+		<attr name = "draw_thumb_text" format = "boolean" />
+		<attr name = "thumb_text_size" format = "float" />
+		<attr name = "thumb_text_color" format = "color" />
+		<attr name = "thumb_text_font" format = "string" />
+
+	</declare-styleable>
+
+	<declare-styleable name = "WBSSeekBar" parent = "WBSView">
+		<attr name = "min_value" format = "float" />
+		<attr name = "min_range" />
+		<attr name = "max_range" />
+		<attr name = "suggested_range_min" />
+		<attr name = "suggested_range_max" />
+
+		<!--Horizontal Bar attributes -->
+		<attr name = "draw_bar" format = "boolean" />
+		<attr name = "bar_color" format = "color" />
+		<attr name = "bar_highlight_color" format = "color" />
+		<attr name = "bar_height" format = "integer" />
+		<attr name = "corner_radius" format = "float" />
+
+		<!-- Thumb attributes-->
+		<attr name = "thumb_color" />
+		<attr name = "thumb_image" />
+		<attr name = "thumb_diameter" format = "dimension" />
+
+		<!-- Thumb Text attributes-->
+		<attr name = "draw_thumb_text" />
+		<attr name = "thumb_text_size" />
+		<attr name = "thumb_text_color" />
+		<attr name = "thumb_text_font" />
+
+		<!--Vertical Bar attributes -->
+		<attr name = "vertical_bar_width" format = "integer" />
+		<attr name = "draw_vertical_bar" format = "enum">
+			<enum name = "none" value = "0" />
+			<enum name = "top" value = "1" />
+			<enum name = "bottom" value = "2" />
+			<enum name = "both" value = "3" />
+		</attr>
+
+
+	</declare-styleable>
+</resources>
