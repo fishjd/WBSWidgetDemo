@@ -1,7 +1,7 @@
 # WBS Widget Demo
 
-[![Release](https://jitpack.io/v/User/Repo.svg)]
-(https://jitpack.io/#User/Repo)
+[![Release](https://jitpack.io/v/fishjd/WBSWidgetDemo.svg)]
+(https://jitpack.io/#fishjd/WBSWidgetDemo)
 
 WBS Widget Demo demonstrates two Android widgets.
 
