@@ -1,3 +1,5 @@
+
+
 # WBS Widget Demo
 
 [![Release](https://jitpack.io/v/fishjd/WBSWidgetDemo.svg)]
@@ -7,6 +9,60 @@ WBS Widget Demo demonstrates two Android widgets.
 
 - WBSSeekBar
 - WBSNotchView
+
+## Installation into your Android Application.  
+
+WBS widget use jitpack.io.  
+
+Add the two sections to your app Build.gradle.  
+
+```
+allprojects {
+   repositories {
+      jcenter()
+      maven { url "https://jitpack.io" }
+   }
+}
+```
+Add one or both to the dependencies {} section.   
+
+Note these two lines use the less common module format:
+
+compile  'com.gethub.User.Repo:Module:tag'
+
+Most examples use the simpler format without the module:
+
+ compile 'com.gethub.User:Repo:Tag' 
+
+### To add WBSSeekBar: 
+
+```
+compile 'com.github.fishjd.WBSWidgetDemo:wbsseekbar:0.1.1'
+```
+
+If you prefer the long format: 
+
+```
+compile group: 'com.github.fishjd.WBSWidgetDemo', name: 'wbsseekbar' , version: '0.1.1'
+```
+
+### To add WBSNotch View: 
+
+```
+compile 'com.github.fishjd.WBSWidgetDemo:wbsnotchview:0.1.1'
+```
+
+If you prefer the long format: 
+
+```
+compile group: 'com.github.fishjd.WBSWidgetDemo', name: 'wbsnotchview' , version: '0.1.1'
+```
+
+
+
+For more help see:  https://jitpack.io/ or https://jitpack.io/#fishjd/WBSWidgetDemo
+
+To find the latest version go to https://jitpack.io/#fishjd/WBSWidgetDemo
 
 ## WBSSeekBar
 
@@ -48,7 +104,37 @@ WBSeekBar is fully configurable in the xml layout file:
 
 **ValueChangeListener** - A callback that notifies clients when the progress level has been changed.   Provides the current value and the value returned by TextChangeListner.   Multiple listeners allowed.
 ​
-​
+
+## ​WBSNotchView
+![WBS_SeekBar](../master/images/WBS_NotchView.gif)
+
+WBSNotchView contains the thumb in the center and vertical bars glide left and right.
+
+### XML Attributes
+
+WBSNotchView is fully configurable in the xml layout file:
+
+| **Range Attributes**            |                                          |
+| ------------------------------- | ---------------------------------------- |
+| range_min, range_max            | The range of the NotchView from right to left. |
+| **Thumb Icon Attributes**       | The attributes of the thumb icon         |
+| thumb_color                     | The color to draw the thumb icon         |
+| thumb_image                     | The image to draw for the thumb.         |
+| **Thumb Text Attributes**       | The attributes of the text drawn on the thumb icon. |
+| draw_thumb_text                 | Boolean, True will draw the value of the seekbar on the thumb icon. |
+| thumb_text_size                 | The size of the thumb text.              |
+| thumb_text_color                | The color of the thumb text.             |
+| thumb_text_font                 | The font of the thumb text.              |
+| **Notch Attributes**            |                                          |
+| major_count                     | The number of major / big notch marks.  Must be two or larger.   Not recommended, use the default. |
+| minor_per_major_count           | The number of minor / small notch marks between every major notch mark. |
+| notch_bar_width                 | The distance between min_range and max_range on the notches.  Default is screen_width * 2. |
+| notch_bar_width_screen_multiple | Same as notch_bar_width but this number is multiplied by the screen width. |
+| major_notch_color               | Color of the major notches               |
+| minor_notch_color               | Color of the minor notches               |
+| notch_text_size                 | Text size of the text above the notches. |
+| notch_text_color                | Text color of the text above the notches. |
+| notch_text_font                 | Font of the text above the notches.      |
 
 
 

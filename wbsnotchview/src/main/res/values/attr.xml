@@ -24,13 +24,14 @@
 		<attr name = "min_range" />
 		<!--The value for the right side of the x axis, the maximum x value, default 100 -->
 		<attr name = "max_range" />
-		<!--The number of major / big notch marks, must be two or larger,
+		<!--The number of major / big notch marks, must be two or larger, Not recommend to use.
 		optional only set if you want something a bit wacky -->
 		<attr name = "major_count" format = "integer" />
 		<!--The number of minor / small notch marks between every major notch mark. Usually odd, default 3 -->
 		<attr name = "minor_per_major_count" format = "integer" />
 
-		<!--The distance between min_range and max_range on the notches.  Use will have to scroll this distance between min and max.
+		<!--The distance between min_range and max_range on the notches.
+		 User will have to scroll this distance between min and max.
 		 default is screen width * 2 -->
 		<attr name = "notch_bar_width" format = "integer" />
 		<!--Same as notch_bar_width but this number is multiplied by the screen width.   -->
