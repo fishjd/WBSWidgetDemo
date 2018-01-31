@@ -1,15 +1,18 @@
 # WBS Widget Demo
 
+[![Release](https://jitpack.io/v/User/Repo.svg)]
+(https://jitpack.io/#User/Repo)
+
 WBS Widget Demo demonstrates two Android widgets.
 
-- WBSSeekBar 
-- WBSNotchView 
+- WBSSeekBar
+- WBSNotchView
 
 ## WBSSeekBar
 
 ![WBS_SeekBar](../master/images/WBS_SeekBar.gif)
 
-WBSSeekBar is similar to the [Android SeekBar](https://developer.android.com/reference/android/widget/SeekBar.html), with the addition of a suggest range that may be highlighted.    Several WBSSeekbars may be joined by a vertical bar and move in unison,  this is implemented with a supplied BigVerticalBar class which handles all the details.    
+WBSSeekBar is similar to the [Android SeekBar](https://developer.android.com/reference/android/widget/SeekBar.html), with the addition of a suggest range that may be highlighted.    Several WBSSeekbars may be joined by a vertical bar and move in unison,  this is implemented with a supplied BigVerticalBar class which handles all the details.
 
 ### XML Attributes
 
@@ -41,11 +44,11 @@ WBSeekBar is fully configurable in the xml layout file:
 
 ### Interface for Callbacks
 
-**TextChangeListener**   - A callback that allows clients to convert the current value to some other text, this text will be displayed as the thumb text.  Allows client to shift the range, add prefix or suffix,  etc.  Use when you want something besides the current value on the thumb text.  If not set then the text is the current value.    Only one allowed pre seek bar.  
+**TextChangeListener**   - A callback that allows clients to convert the current value to some other text, this text will be displayed as the thumb text.  Allows client to shift the range, add prefix or suffix,  etc.  Use when you want something besides the current value on the thumb text.  If not set then the text is the current value.    Only one allowed pre seek bar.
 
-**ValueChangeListener** - A callback that notifies clients when the progress level has been changed.   Provides the current value and the value returned by TextChangeListner.   Multiple listeners allowed.  
-​        
-​    
+**ValueChangeListener** - A callback that notifies clients when the progress level has been changed.   Provides the current value and the value returned by TextChangeListner.   Multiple listeners allowed.
+​
+​
 
 
 
