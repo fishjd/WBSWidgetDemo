@@ -102,11 +102,11 @@ WBSeekBar is fully configurable in the xml layout file:
 
 **TextChangeListener**   - A callback that allows clients to convert the current value to some other text, this text will be displayed as the thumb text.  Allows client to shift the range, add prefix or suffix,  etc.  Use when you want something besides the current value on the thumb text.  If not set then the text is the current value.    Only one allowed pre seek bar.
 
-**ValueChangeListener** - A callback that notifies clients when the progress level has been changed.   Provides the current value and the value returned by TextChangeListner.   Multiple listeners allowed.
-​
+**ValueChangeListener** - A callback that notifies clients when the progress level has been changed.   Provides the current value and the value returned by TextChangeListener.   Multiple listeners allowed.
 
-## ​WBSNotchView
-![WBS_SeekBar](../master/images/WBS_NotchView.gif)
+
+## WBSNotchView
+![WBS_notchview](../master/images/WBS_NotchView.gif)
 
 WBSNotchView contains the thumb in the center and vertical bars glide left and right.
 
@@ -121,7 +121,7 @@ WBSNotchView is fully configurable in the xml layout file:
 | thumb_color                     | The color to draw the thumb icon         |
 | thumb_image                     | The image to draw for the thumb.         |
 | **Thumb Text Attributes**       | The attributes of the text drawn on the thumb icon. |
-| draw_thumb_text                 | Boolean, True will draw the value of the seekbar on the thumb icon. |
+| draw_thumb_text                 | Boolean, True will draw the value of the notch view on the thumb icon. |
 | thumb_text_size                 | The size of the thumb text.              |
 | thumb_text_color                | The color of the thumb text.             |
 | thumb_text_font                 | The font of the thumb text.              |
@@ -136,7 +136,12 @@ WBSNotchView is fully configurable in the xml layout file:
 | notch_text_color                | Text color of the text above the notches. |
 | notch_text_font                 | Font of the text above the notches.      |
 
+### Interface for Callbacks
 
+**TextChangeListener**   - A callback that allows clients to convert the current value to some other text, this text will be displayed as the thumb text.  Allows client to shift the range, add prefix or suffix,  etc.  Use when you want something besides the current value on the thumb text.  If not set then the text is the current value.    Only one allowed pre notch view .
+
+**ValueChangeListener** - A callback that notifies clients when the progress level has been changed.   Provides the current value and the value returned by TextChangeListener.  
+​
 
 
 
